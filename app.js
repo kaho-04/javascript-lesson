@@ -11,17 +11,13 @@ let languages = ['JavaScript', 'PHP', 'Ruby', 'Python', 'Go'];
 let template = `私の好きな言語は${languages[0]}です。次は${languages[3]}を勉強してみたいです。`;
 console.log(template);
 
-// Q3 オブジェクト Q7 メソッド
+// Q3 オブジェクト
 
 let user = {
   name: 'John',
   age: 26,
   bloodType: 'A',
   favorite: 'card',
-  birthday: '2000-09-27',
-  sayHello: function(){
-    console.log('Hello!');
-  }
 };
 console.log(user.age);
 
@@ -51,7 +47,7 @@ console.log(playerList[1].favorites[1]);
 
 let ave = ((playerList[0].age)+
           (playerList[1].age)+
-          (playerList[2].age))/3
+          (playerList[2].age))/playerList.length
 
 console.log(ave);
 
@@ -60,16 +56,22 @@ console.log(ave);
 function sayHello() {
   console.log('hello');
 }
-
 sayHello();
 
-let sayWorld = 'World';
-sayWorld = function(){};
-console.log(sayWorld);
+let sayWorld = function() {
+  console.log('World');
+}
+sayWorld();
 
 // Q7 メソッド
 
-user.sayHello();
+user.birthday = '2000-09-27'; // プロパティ追加
+
+user.sayHello = function() {
+  console.log('Hello!');
+};
+
+user.sayHello(); // メソッド追加
 
 // Q8 引数
 
@@ -95,17 +97,21 @@ calc.divide(10, 2);
 
 // Q9 返り値
 
+let a = 5;
+let b = 3;
+
 function remainder(x ,y){
   return  x % y;
 }
 
-console.log(5 + 'を' + 3 + 'で割った余りは' + remainder(5, 3) + 'です。');
+console.log(a + 'を' + b + 'で割った余りは' + remainder(a, b) + 'です。');
 
 // Q10 スコープ
 
 function foo() {
   let x = 1;
-}console.log();
+}
+console.log();
 
 //　console.log(x);においてコンソールに1が出力されない理由は、
 //　x は、foo関数の中で定義した為、スコープの有効範囲が関数の中のみになっている。
@@ -118,7 +124,7 @@ function foo() {
 let random = Math.floor(Math.random() * 10);
 console.log(random);
 
-// Q2 コールバック関数
+// Q2 コールバック関数 引数に渡される関数
 
 function callback() {
   console.log('Hello World!');
@@ -133,7 +139,7 @@ if (num > 0 ) {
   console.log('num is greater than 0');
 } else if (num < 0) {
   console.log('num is less than 0');
-} else if (num === 0) {
+} else {
   console.log('num is 0');
 }
 
@@ -159,3 +165,5 @@ for (let i = 0; i < mixed.length; i++){
     console.log('odd');
   }
 }
+
+// i < mixed.length は条件式。trueだったら続行
